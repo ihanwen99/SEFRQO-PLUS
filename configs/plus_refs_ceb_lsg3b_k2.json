@@ -1,0 +1,31 @@
+{
+  "mode": "static",
+  "prompt_style": "plus",
+  "encoder": "text",
+  "model": {
+    "loader": "peft",
+    "path": "models/sft-grpo-3b",
+    "base_path": "models/sft-3b"
+  },
+  "hint_output": "body",
+  "use_system_prompt": true,
+  "use_references": true,
+  "num_references": 2,
+  "num_iterations": 31,
+  "system_prompt": "data/prompts/imdb_system.txt",
+  "history": [
+    "data/history/job.sql"
+  ],
+  "databases": [
+    {
+      "name": "imdbload",
+      "timeout_ms": 15000,
+      "workloads": [
+        "sql/ceb"
+      ]
+    }
+  ],
+  "records": "records/imdbload_online_vec_ref_2.db",
+  "reset_records": true,
+  "clamp_references": true
+}

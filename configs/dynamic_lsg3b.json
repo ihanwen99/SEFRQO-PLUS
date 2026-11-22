@@ -1,0 +1,37 @@
+{
+  "mode": "dynamic",
+  "model": {
+    "loader": "peft",
+    "path": "models/sft-grpo-3b-dynamic",
+    "base_path": "models/sft-3b"
+  },
+  "hint_output": "body",
+  "use_system_prompt": true,
+  "use_references": true,
+  "num_references": 1,
+  "num_iterations": 50,
+  "system_prompt": "data/prompts/imdb_system.txt",
+  "history": [
+    "data/history/job.sql"
+  ],
+  "databases": [
+    {
+      "name": "imdbload",
+      "timeout_ms": 10000,
+      "workloads": [
+        "sql/ceb",
+        "sql/job"
+      ]
+    },
+    {
+      "name": "soload",
+      "timeout_ms": 30000,
+      "workloads": [
+        "sql/stack"
+      ]
+    }
+  ],
+  "records": "records/dynamic_online_vec.db",
+  "num_episodes": 10,
+  "seed": 42
+}

@@ -1,0 +1,27 @@
+{
+  "mode": "static",
+  "model": {
+    "loader": "hf",
+    "path": "unsloth/Llama-3.2-3B-Instruct-unsloth-bnb-4bit"
+  },
+  "hint_output": "full",
+  "use_system_prompt": true,
+  "use_references": true,
+  "num_references": 1,
+  "num_iterations": 50,
+  "system_prompt": "data/prompts/imdb_system.txt",
+  "history": [
+    "data/history/job.sql"
+  ],
+  "databases": [
+    {
+      "name": "imdbload",
+      "timeout_ms": 10000,
+      "workloads": [
+        "sql/ceb"
+      ]
+    }
+  ],
+  "records": "records/imdbload_online_vec.db",
+  "compact_first_instruction": true
+}

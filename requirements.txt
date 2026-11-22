@@ -1,0 +1,17 @@
+vllm==0.6.6.post1
+torch==2.5.1
+transformers
+peft
+accelerate
+bitsandbytes
+sentence_transformers
+pymilvus
+milvus-lite
+psycopg2-binary
+pandas
+numpy
+absl-py
+sqlglot==27.27.0
+unsloth==2025.3.19
+trl==0.15.2
+datasets

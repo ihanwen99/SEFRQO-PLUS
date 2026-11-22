@@ -1,0 +1,27 @@
+{
+  "mode": "static",
+  "model": {
+    "loader": "peft",
+    "path": "models/sft-grpo-8b",
+    "base_path": "models/sft-8b"
+  },
+  "hint_output": "body",
+  "use_system_prompt": true,
+  "use_references": true,
+  "num_references": 1,
+  "num_iterations": 50,
+  "system_prompt": "data/prompts/stack_system.txt",
+  "history": [
+    "data/history/stack.sql"
+  ],
+  "databases": [
+    {
+      "name": "soload",
+      "timeout_ms": 30000,
+      "workloads": [
+        "sql/stack"
+      ]
+    }
+  ],
+  "records": "records/soload_online_vec.db"
+}

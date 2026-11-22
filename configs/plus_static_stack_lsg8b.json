@@ -1,0 +1,36 @@
+{
+  "mode": "static",
+  "prompt_style": "plus",
+  "encoder": "text",
+  "model": {
+    "loader": "peft",
+    "path": "models/sft-grpo-8b",
+    "base_path": "models/sft-8b"
+  },
+  "hint_output": "body",
+  "use_system_prompt": true,
+  "use_references": true,
+  "num_references": 1,
+  "num_iterations": 51,
+  "system_prompt": "data/prompts/stack_system.txt",
+  "history": [
+    "data/history/stack.sql"
+  ],
+  "databases": [
+    {
+      "name": "soload",
+      "timeout_ms": 30000,
+      "workloads": [
+        "sql/stack"
+      ]
+    }
+  ],
+  "records": "records/v_stack_lsg8b_text_k1.db",
+  "reset_records": true,
+  "clamp_references": true,
+  "keep_all_online": true,
+  "sort_workload": true,
+  "workload": "stack",
+  "overhead_log": "results/overhead",
+  "continue_online_ids": true
+}

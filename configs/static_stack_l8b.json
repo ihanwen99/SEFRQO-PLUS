@@ -1,0 +1,27 @@
+{
+  "mode": "static",
+  "model": {
+    "loader": "vllm",
+    "path": "unsloth/Meta-Llama-3.1-8B-Instruct"
+  },
+  "hint_output": "full",
+  "use_system_prompt": true,
+  "use_references": true,
+  "num_references": 1,
+  "num_iterations": 50,
+  "system_prompt": "data/prompts/stack_system.txt",
+  "history": [
+    "data/history/stack.sql"
+  ],
+  "databases": [
+    {
+      "name": "soload",
+      "timeout_ms": 30000,
+      "workloads": [
+        "sql/stack"
+      ]
+    }
+  ],
+  "records": "records/soload_online_vec.db",
+  "compact_first_instruction": true
+}
